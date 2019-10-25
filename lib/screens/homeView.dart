@@ -94,6 +94,16 @@ class HomeView extends StatelessWidget {
                     },
                     child: new Text("New BottomTabs"),
             ),
+
+            new RaisedButton(
+                    padding: const EdgeInsets.all(8.0),
+                    textColor: Colors.white,
+                    color: Colors.grey,
+                    onPressed: () async {
+                      await Navigator.pushNamed(context, ProfileViewRoute);
+                    },
+                    child: new Text("Profile"),
+            ),
            
           ],
         ),

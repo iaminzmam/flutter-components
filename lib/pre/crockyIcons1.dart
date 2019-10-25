@@ -19,9 +19,13 @@ class MyFlutterApp {
   MyFlutterApp._();
 
   static const _kFontFam = 'MyFlutterApp';
+  static const _kFontFam1 = 'MyFlutterApp1';
+  
 
-  static const IconData slideshare = const IconData(0xe800, fontFamily: _kFontFam);
-  static const IconData add = const IconData(0xe801, fontFamily: _kFontFam);
-  static const IconData back = const IconData(0xe802, fontFamily: _kFontFam);
+  static const IconData friends = const IconData(0xe802, fontFamily: _kFontFam);
+  static const IconData me = const IconData(0xe803, fontFamily: _kFontFam);
+  static const IconData add = const IconData(0xe804, fontFamily: _kFontFam);
+
+  static const IconData launch = const IconData(0xe800, fontFamily: _kFontFam1);
 
 }

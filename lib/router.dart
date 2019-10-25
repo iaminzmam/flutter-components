@@ -9,6 +9,7 @@ import 'package:fluttercomponents/screens/thirdView.dart';
 import 'package:fluttercomponents/screens/fourthView.dart';
 import 'package:fluttercomponents/screens/snackbarView.dart';
 import 'package:fluttercomponents/screens/bottomTabView.dart';
+import 'package:fluttercomponents/screens/profileView.dart';
 
 
 
@@ -40,6 +41,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     
       case BottomTabNewViewRoute:
           return MaterialPageRoute(builder: (context)=> BottomTabNewView());
+      
+      case ProfileViewRoute:
+          return MaterialPageRoute(builder: (context)=> ProfileView());
 
       default:
           return MaterialPageRoute(builder: (context)=> UndefinedView());

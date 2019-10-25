@@ -54,7 +54,7 @@ class _TabsState extends State<Tabs> {
         FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xFFFFCF30),
-        child: const Icon(Icons.add), onPressed: () {},),
+        child: const Icon(customIcon.MyFlutterApp.add), onPressed: () {},),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 5.0,
