@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fluttercomponents/routing_const.dart';
-import 'package:fluttercomponents/utils/friends.dart';
+import 'package:fluttercomponents/widgets/contacts.dart';
+import 'package:fluttercomponents/widgets/friends.dart';
 import '../pre/crockyIcons.dart' as customIcon;
+
 
 
 
@@ -40,15 +41,63 @@ class ProfileView extends StatelessWidget {
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      floatingActionButton: FloatingActionButton(backgroundColor: Color(0xFF33F1A5),
-        child: const Icon(Icons.launch), onPressed: () {},),
       backgroundColor: Colors.white,
-      body: DefaultTabController(
+      body: ProfileTabsView(),
+      
+    );
+  }
+
+
+
+
+
+}
+
+
+
+
+
+class ProfileTabsView extends StatefulWidget {
+  @override
+  ProfileTabsState createState() => ProfileTabsState();
+
+}
+
+
+
+
+class ProfileTabsState extends State<ProfileTabsView> with SingleTickerProviderStateMixin {
+
+  TabController _controller;
+  int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TabController(vsync: this, length: 3);
+    _controller.addListener(_handleTabSelection);
+  }
+
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+
         initialIndex: 0,
         length: 3, 
         child: Scaffold(
+        floatingActionButton: _floatingButton(_currentIndex),
           appBar: PreferredSize(
+            
             preferredSize: Size.fromHeight(120),
             child: Container(
               alignment: Alignment.topCenter,
@@ -64,8 +113,6 @@ class ProfilePage extends StatelessWidget {
                        Row(
                          children: <Widget>[
                            Image.asset('assets/profilepic.png'),
-                      
-                       
                          ],
                        ),
                        Row(
@@ -77,8 +124,13 @@ class ProfilePage extends StatelessWidget {
                     ],
                   ),
                 ),
+                
                 bottom: TabBar(labelPadding: EdgeInsets.only(top: 10, bottom: 5, ),
                       indicatorColor: Color(0xFFFFCF30),
+                      controller: _controller,
+                      onTap: (int index) {
+                        // print(index);
+                      },
                       tabs: <Widget>[
                         Text('Profile'),
                         Text('Friends'),
@@ -89,15 +141,30 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           body: TabBarView(
+            controller: _controller,
             children: <Widget>[
+              Icon(Icons.person),
               FriendsView(),
-              Icon(Icons.people),
-              Icon(Icons.contacts),
+              ContactsView(),
             ],
           ),
         ),
-      ),
-      
-    );
+      );
+
   }
+
+  _handleTabSelection() {
+          setState(() {
+                    _currentIndex = _controller.index;
+                  });
+              }
+
+  
+
+  Widget _floatingButton(_currentIndex) {
+  return  FloatingActionButton(backgroundColor: Color(0xFF33F1A5),
+        child: _currentIndex == 0 ? Icon(Icons.launch) : Icon(Icons.add), onPressed: () {
+        });
+ }
+
 }

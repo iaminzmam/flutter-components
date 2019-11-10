@@ -1,0 +1,139 @@
+import 'package:flutter/material.dart';
+import 'package:fluttercomponents/routing_const.dart';
+import 'package:fluttercomponents/widgets/contacts.dart';
+import 'package:fluttercomponents/widgets/friends.dart';
+import '../pre/crockyIcons.dart' as customIcon;
+
+
+
+
+class AddFriendView extends StatelessWidget {
+  const AddFriendView({Key key}) : super(key:key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        titleSpacing: 0.0,
+            leading: IconButton(icon: Icon(customIcon.MyFlutterApp.back, size: 15, color: Colors.black,),
+                onPressed: () async {
+                  await Navigator.pop(context);
+                },),
+            title: Text('Add Friends', style: TextStyle(color: Colors.black),),
+            elevation: 0.0,
+      ),
+      body: AddFriend(),
+    );
+   
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// Define a custom Form widget.
+class AddFriend extends StatefulWidget {
+     @override
+    AddFriendState createState() => AddFriendState();
+}
+
+
+class AddFriendState extends State<AddFriend> {
+  // TaskCreateFormState();
+  // Create a text controller and use it to retrieve the current value
+  // of the TextField.
+
+ 
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(40),
+            child: Column(
+              children: <Widget>[
+                Row(children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(top: 15, bottom: 10),
+                    child: Text("Enter your Friend's gmail address", style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),)
+                    ),
+                ],),
+                Row(children: <Widget>[
+                  Expanded(
+                    // width: 300,
+                    // margin: EdgeInsets.only(top: 15, bottom: 10),
+                    child: searchFriend(),
+                    ),
+                ],),
+                Row(children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(top: 30, bottom: 30),
+                    child: Text("Or", style: TextStyle(fontSize: 20, color: Colors.grey[500]),)
+                    ),
+                ],),
+                Row(
+                      children: <Widget>[
+                        Expanded(
+                          // margin: EdgeInsets.only(top: 15, bottom: 10),
+                          child: new OutlineButton(
+                                    padding: EdgeInsets.all(10),
+                                    child: new Text("Select From Contact           >", style: TextStyle(fontSize: 20, color: Colors.black),),
+                                    onPressed: () {},
+                                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(6.0))
+                                  ),
+                          ),
+                    ],),
+                Row(
+                  children: <Widget>[
+                    Container(
+                          margin: EdgeInsets.only(top: 30, bottom: 10, right: 16),
+                          child: new RaisedButton(
+                                    padding: EdgeInsets.only(left: 50, right: 50),
+                                    child: new Text("Next", style: TextStyle(color: Colors.white),),
+                                    color: Colors.grey,
+                                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(6.0)),
+                                    onPressed: () {},
+                                  ),
+                          ),
+                  ],
+                )
+
+              ],
+            ),
+          )
+        ],
+      ),
+      
+    );
+  }
+
+
+ Widget searchFriend() {
+    return TextFormField(
+        // controller: myController,
+        decoration: InputDecoration(
+            hintStyle: TextStyle(color: Colors.grey[300], fontSize: 24),
+            // border: InputBorder.none,
+            hintText: 'type gmail',
+          ),
+      );
+  }
+
+
+}
+
+
+

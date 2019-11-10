@@ -104,6 +104,33 @@ class HomeView extends StatelessWidget {
                     },
                     child: new Text("Profile"),
             ),
+            new RaisedButton(
+                    padding: const EdgeInsets.all(8.0),
+                    textColor: Colors.white,
+                    color: Colors.grey,
+                    onPressed: () async {
+                      await Navigator.pushNamed(context, TaskCreateViewRoute);
+                    },
+                    child: new Text("Task create"),
+            ),
+            new RaisedButton(
+                    padding: const EdgeInsets.all(8.0),
+                    textColor: Colors.white,
+                    color: Colors.grey,
+                    onPressed: () async {
+                      await Navigator.pushNamed(context, AddFriendViewRoute);
+                    },
+                    child: new Text("Add Friends"),
+            ),
+            new RaisedButton(
+                    padding: const EdgeInsets.all(8.0),
+                    textColor: Colors.white,
+                    color: Colors.grey,
+                    onPressed: () async {
+                      await Navigator.pushNamed(context, AddContactsViewRoute);
+                    },
+                    child: new Text("Add Contacts"),
+            ),
            
           ],
         ),

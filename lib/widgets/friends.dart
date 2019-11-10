@@ -17,23 +17,26 @@ class FriendsState extends State<FriendsView> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: new List.generate(20, (index) => _buildRow()),
+      children: new List.generate(20, (index) => _buildRow(index)),
     );
   }
 
-  Widget _buildRow() {
-
+  Widget _buildRow(index) {
   return ListTile(
-          
-          contentPadding: EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
+     
+          contentPadding: EdgeInsets.only( bottom: 10, left: 10, right: 10),
           leading: Container(
             width: 40,
             height: 40,
             
-            child: Image.asset('assets/friendspic.png'),
+            child: ClipRRect(
+                borderRadius: new BorderRadius.all(Radius.circular(12)),
+                child: Image.asset('assets/inzmam.png', fit: BoxFit.cover,),
+            ),
+            
           ),
           title: Container(
-            padding: EdgeInsets.only(bottom: 10),
+            padding: EdgeInsets.only(top: 10,bottom: 20),
             decoration: BoxDecoration(
               border: Border(bottom: BorderSide(color: Colors.grey[200], width: 1))
             ),
@@ -69,7 +72,17 @@ class FriendsState extends State<FriendsView> {
               Container(
                   width: 75,
                   height: 30,
-                  child: RaisedButton(
+                  child: index%3==0 ? _acceptButton() : _requested(),
+              ),
+          ],),  
+          ),
+        );
+
+ }
+
+
+    Widget _acceptButton() {
+      return RaisedButton(
                       shape: RoundedRectangleBorder(
                                 borderRadius: new BorderRadius.circular(8.0), ),
                       textColor: Colors.white,
@@ -77,12 +90,13 @@ class FriendsState extends State<FriendsView> {
                       onPressed: () async {
                       },
                       child: new Text("Accept", style: TextStyle(fontSize: 13,),),
-                ),
-              ),
-          ],),
-          ),
-        );
- }
+                );
+    }
+
+
+    Widget _requested() {
+      return Text('Requested', style: TextStyle(color: Colors.grey, fontSize: 12),);
+    }
 
 
 }

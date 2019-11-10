@@ -8,3 +8,7 @@ const String BottomTabViewRoute = 'bottomTab';
 const String TabsViewRoute = 'tabs';
 const String BottomTabNewViewRoute = 'bottomTabsNew';
 const String ProfileViewRoute = 'profile';
+const String TaskCreateViewRoute = 'newTask';
+const String TaskCreateDetailViewRoute = 'newTaskAddDetail';
+const String AddFriendViewRoute = 'addFriend';
+const String AddContactsViewRoute = 'addContacts';

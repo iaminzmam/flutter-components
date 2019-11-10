@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercomponents/routing_const.dart';
+import 'package:fluttercomponents/screens/TaskAddDetails.dart';
+import 'package:fluttercomponents/screens/addContacts.dart';
+import 'package:fluttercomponents/screens/addFriend.dart';
 import 'package:fluttercomponents/screens/bottomTabNewView.dart';
 import 'package:fluttercomponents/screens/firstView.dart';
 import 'package:fluttercomponents/screens/homeView.dart';
@@ -10,6 +13,7 @@ import 'package:fluttercomponents/screens/fourthView.dart';
 import 'package:fluttercomponents/screens/snackbarView.dart';
 import 'package:fluttercomponents/screens/bottomTabView.dart';
 import 'package:fluttercomponents/screens/profileView.dart';
+import 'package:fluttercomponents/screens/TaskCreateView.dart';
 
 
 
@@ -44,6 +48,18 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       
       case ProfileViewRoute:
           return MaterialPageRoute(builder: (context)=> ProfileView());
+
+      case TaskCreateViewRoute:
+          return MaterialPageRoute(builder: (context)=> TaskCreateView());
+
+      case TaskCreateDetailViewRoute:
+          return MaterialPageRoute(builder: (context)=> TaskCreateAddDetailsView());
+
+      case AddFriendViewRoute:
+          return MaterialPageRoute(builder: (context)=> AddFriendView());
+
+      case AddContactsViewRoute:
+          return MaterialPageRoute(builder: (context)=> AddContactsView());
 
       default:
           return MaterialPageRoute(builder: (context)=> UndefinedView());
